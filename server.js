@@ -4,6 +4,8 @@ const server=express();
 const mongoose= require('mongoose')
 require('dotenv').config();
 
+const port = process.env.PORT || 5000;
+
 
 const adminRoutes=require('./routes/admin-routes')
 const orderRoutes=require('./routes/order-routes');
@@ -22,9 +24,9 @@ server.use((req,res,next)=>{
     next();
 })
 
-server.use('/admin',adminRoutes);
-server.use('/order',orderRoutes);
-server.use('/confirmation',orderRoutes);
+server.use('/api/admin',adminRoutes);
+server.use('/api/order',orderRoutes);
+server.use('/api/confirmation',orderRoutes);
 server.use((error, req, res, next)=>{
     if(res.headerSent){
         return next(error);
@@ -36,7 +38,7 @@ server.use((error, req, res, next)=>{
 mongoose
     .connect(`${process.env.URI}`)
     .then(()=>{
-        server.listen(5000)
+        server.listen(port)
         console.log("Server listening successfully!")
     })
     .catch(err => {
