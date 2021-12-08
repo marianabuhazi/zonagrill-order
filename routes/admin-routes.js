@@ -5,8 +5,8 @@ const router= express.Router();
 
 router.get('/ready', adminControllers.readyOrders)
 router.get('/pending', adminControllers.pendingOrders)
-router.get('/pending/:oid', adminControllers.modifyOrder)
-router.get('/ready/:oid', adminControllers.deleteOrder)
+router.post('/pending/:oid', adminControllers.modifyOrder)
+router.post('/ready/:oid', adminControllers.deleteOrder)
 router.post('/login', [check('username').not().isEmpty(), check('password').not().isEmpty()], adminControllers.login)
 
 module.exports= router;

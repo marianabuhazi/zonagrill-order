@@ -1,106 +1,88 @@
 const HttpError=require('../models/http-err')
 const {validationResult}=require('express-validator')
+const Order = require('../models/order')
 
 const DUMMY_USER={
     username:'yackselys',
     password:'test'
 }
-let DUMMY_ORDERS=[
-    {
-        id:'1',
-        email:'marian@gmail.com',
-        fname:'marian',
-        lname:'abuhazi',
-        appetizer:'tequeños',
-        entree:'none',
-        drink:'sprite',
-        comments:'',
-        ready:'ready'
-    },
-    {
-        id:'2',
-        email:'sweet@gmail.com',
-        fname:'sweet',
-        lname:'caroline',
-        appetizer:'tequeños',
-        entree:'none',
-        drink:'sprite',
-        comments:'',
-        ready:'pending'
-    },
-    {
-        id:'3',
-        email:'merts@gmail.com',
-        fname:'marian',
-        lname:'abuhazi',
-        appetizer:'tequeños',
-        entree:'none',
-        drink:'sprite',
-        comments:'',
-        ready:'ready'
-    }
-  
-]
 
 //returns all ordered labeled as ready
-const readyOrders= (req,res,next)=>{
-    let orders=[]
-    DUMMY_ORDERS.find(o=>{
-        if(o.ready==='ready'){
-            orders.push(o);
-        }   
-    })
+const readyOrders= async(req,res,next)=>{
+    let orders;
+    try{
+        orders= await Order.find({ready:'ready'})
+    }
+    catch (err){
+        const error= new HttpError('There was an error getting ready orders',500);
+        return next(error);
+    }
     if(orders.length===0){
         const error= new HttpError('No ready orders found',404);
         return next(error);
     }
-    res.json({orders})
+    res.json({orders:orders})
 }
 
-const pendingOrders= (req,res,next)=>{
-    let orders=[]
-    DUMMY_ORDERS.find(o=>{
-        if(o.ready==='pending'){
-            orders.push(o);
-        }   
-    })
+const pendingOrders= async (req,res,next)=>{
+    let orders;
+    try{
+        orders= await Order.find({ready:'pending'})
+    }
+    catch (err){
+        const error= new HttpError('There was an error getting pending orders',500);
+        return next(error);
+    }
     if(orders.length===0){
         const error= new HttpError('No pending orders found',404);
         return next(error);
     }
-    res.json({orders})
+    res.json({orders:orders})
 }
 
-const deleteOrder= (req,res,next)=>{
+const deleteOrder= async (req,res,next)=>{
     const orderId= req.params.oid
-    DUMMY_ORDERS=DUMMY_ORDERS.filter(o=>{ 
-        return o.id!==orderId 
+    let order;
+    try{
+        order= await Order.findById(orderId);
     }
-    )
-    if(DUMMY_ORDERS.length===0){
-        const error= new HttpError('No ready orders found',404);
-        return next(error)
+    catch (err){
+        const error= new HttpError('There was an error finding the order',500);
+        return next(error);
     }
-    res.json({DUMMY_ORDERS})
+    try{
+        await order.remove();
+    }
+    catch(err){
+        const error= new HttpError('There was an error deleting the order',500);
+        return next(error);
+    }
+    res.json("Order successfully deleted")
 }
 
-const modifyOrder= (req,res,next)=>{
-    const orderId= req.params.oid
-    const orderToChange= DUMMY_ORDERS.find(o=>{ 
-        return o.id===orderId 
-    } )
+const modifyOrder= async (req,res,next)=>{
+    const orderId= req.params.oid;
+    let orderToChange;
+    try{
+        orderToChange= await Order.findById(orderId);
+    }
+    catch (err){
+        const error= new HttpError('There was an error finding the order',500);
+        return next(error);
+    }
     if(!orderToChange){
         const error= new HttpError('No order has been found',404);
         return next(error)
     }
-    const orderToChangeIndex= DUMMY_ORDERS.findIndex(o=>{ 
-        o.id===orderId 
-    } )
-    orderToChange.ready==="ready" ? orderToChange.ready="pending" : orderToChange.ready="ready"
-
-    DUMMY_ORDERS[orderToChangeIndex]=orderToChange
-
-    res.json({DUMMY_ORDERS})
+    try{
+        orderToChange.ready==="ready" ? orderToChange.ready="pending" : orderToChange.ready="ready"
+        await orderToChange.save();
+    }
+    catch (err){
+        const error= new HttpError('There was an error modifying the order',500);
+        return next(error);
+    }
+    res.json({order:orderToChange.toObject({getters:true})}).status(200)
 }
 
 const login= (req,res,next)=>{
