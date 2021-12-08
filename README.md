@@ -7,9 +7,8 @@ It also provides an Admin Login to view pending and ready orders, as well as to 
 
 # Run Locally
 Requires MongoDB credentials, and Network approval.
-cd client npm start
-cd .. npm start
+cd client npm start.
+cd .. npm start.
 
-# Live on Heroku
 
 # Thanks for ordering at Zona Grill🔥
