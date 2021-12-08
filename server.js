@@ -32,7 +32,7 @@ server.use((error, req, res, next)=>{
 })
 
 mongoose
-    .connect('mongodb://marianabuhazi:K7cjS1MgUzhjrzQM@cluster1-shard-00-00.ojcwn.mongodb.net:27017,cluster1-shard-00-01.ojcwn.mongodb.net:27017,cluster1-shard-00-02.ojcwn.mongodb.net:27017/orders?ssl=true&replicaSet=atlas-hm7eer-shard-0&authSource=admin&retryWrites=true&w=majority')
+    .connect(`${process.env.URI}`)
     .then(()=>{
         server.listen(5000)
         console.log("Server listening successfully!")
