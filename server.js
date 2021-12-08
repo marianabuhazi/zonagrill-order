@@ -10,7 +10,6 @@ const port = process.env.PORT || 8000;
 
 const adminRoutes=require('./routes/admin-routes')
 const orderRoutes=require('./routes/order-routes');
-const { restart } = require('nodemon');
 
 
 server.use(bodyParser.json());
