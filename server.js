@@ -2,9 +2,10 @@ const express =require('express');
 const bodyParser= require('body-parser');
 const server=express();
 const mongoose= require('mongoose')
+const path = require("path")
 require('dotenv').config();
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8000;
 
 
 const adminRoutes=require('./routes/admin-routes')
@@ -24,6 +25,9 @@ server.use((req,res,next)=>{
     next();
 })
 
+// ... other app.use middleware 
+server.use(express.static(path.join(__dirname, "client", "build")))
+
 server.use('/api/admin',adminRoutes);
 server.use('/api/order',orderRoutes);
 server.use('/api/confirmation',orderRoutes);
@@ -34,6 +38,10 @@ server.use((error, req, res, next)=>{
     res.status(error.code || 500);
     res.json({message:error.message} || "An unknown error occurred!")
 })
+
+server.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
 mongoose
     .connect(`${process.env.URI}`)

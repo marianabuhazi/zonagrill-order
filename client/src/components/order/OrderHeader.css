@@ -1,0 +1,13 @@
+.logo {
+	width: 30rem;
+	padding: 5px;
+	display: block;
+	margin: auto;
+}
+.eventName {
+	text-align: center;
+	font-family: "IBM Plex Serif", serif;
+	color: #3c2414;
+	margin: 2%;
+	font-size: 4.5vh;
+}
