@@ -25,7 +25,6 @@ server.use((req,res,next)=>{
     next();
 })
 
-// ... other app.use middleware 
 server.use(express.static(path.join(__dirname, "client", "build")))
 
 server.use('/api/admin',adminRoutes);
@@ -44,7 +43,7 @@ server.get("*", (req, res) => {
 });
 
 mongoose
-    .connect(`${process.env.URI}`)
+    .connect(process.env.URI, { useNewUrlParser: true })
     .then(()=>{
         server.listen(port)
         console.log("Server listening successfully!")
