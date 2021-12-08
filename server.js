@@ -2,6 +2,8 @@ const express =require('express');
 const bodyParser= require('body-parser');
 const server=express();
 const mongoose= require('mongoose')
+require('dotenv').config();
+
 
 const adminRoutes=require('./routes/admin-routes')
 const orderRoutes=require('./routes/order-routes');
