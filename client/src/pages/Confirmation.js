@@ -1,22 +1,23 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import Header from '../components/order/OrderHeader'
+import './Confirmation.css'
 
 const Confirmation = ({order}) => {
     return (
         <div>
             <Header name="Thermofisher Corporate Event"/> 
-            <h1>Your order has been received. </h1>
-            <h2>Here's your receipt</h2>
-            {order && <div key={order.id}>
-                    <h2>{order.id}</h2>
-                    <h2>{order.email}</h2>
-                    <h2>{order.fname}</h2>
-                    <h2>{order.lname}</h2>
-                    <h2>{order.entree}</h2>
-                    <h2>{order.appetizer}</h2>
-                    <h2>{order.drink}</h2>
-                    <h2>{order.comments}</h2>
+            {order && <div  key={order.id}>
+            <h1 className='thankYou'>Thank you for ordering, {order.fname}!</h1>
+            <h3 className='screenshot'>Take a screenshot of your order to show at the window.</h3>
+                <div className="receipt">
+                    <h1 className='title'>RECEIPT</h1>
+                    <h2 className='items'>Entree: {order.entree}</h2>
+                    <h2 className='items'>Appetizer: {order.appetizer}</h2>
+                    <h2 className='items'>Drink: {order.drink}</h2>
+                    <h2 className='items'>Comments: {order.comments}</h2>
+                    <br/>
+                </div>
             </div>}
             {/* {orders.map(o=>{
                 return(

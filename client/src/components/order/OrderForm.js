@@ -66,7 +66,8 @@ const OrderForm = (props) => {
     return (
         <div>
             <form className="form">
-            <h2>1. Personal Information</h2>
+            <h2 className="subtitle">1. Personal Information</h2>
+            <label className="">You must enter valid information to proceed</label>
             <div className="section">
                 <div className="question">
                     <label className="label">
@@ -91,7 +92,7 @@ const OrderForm = (props) => {
                 </div>
             </div>
             <br/>
-            <h2>2. Order Information</h2>
+            <h2 className="subtitle">2. Order Information</h2>
             <div className="section">
                 <div className="question">
                     <label className="label">
@@ -134,10 +135,10 @@ const OrderForm = (props) => {
                 </div>
             </div>
             <br/>
-            <h2>3. Comments (optional)</h2>
+            <h2 className="subtitle">3. Comments (optional)</h2>
             <div className="question">
-                <label className="label">
-                    Anything else we should know?
+                <label className="number">
+                    Or phone number if you'd like us to call when the order is ready!
                 </label>
                 <input className="inputBox" type="text" onChange={e=>setComments(e.target.value)}></input>
             </div>

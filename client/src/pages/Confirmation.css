@@ -1,0 +1,40 @@
+.thankYou {
+	color: black;
+	font-size: 4vh;
+	padding: 2.5vh;
+	padding-bottom: 1vh;
+	font-family: "IBM Plex Serif", serif;
+}
+.screenshot {
+	color: rgb(241, 54, 54);
+	font-size: 2h;
+	padding-left: 3.3vh;
+	padding-bottom: 1;
+	font-family: "IBM Plex Serif", serif;
+}
+
+.receipt {
+	display: block;
+	width: 40%;
+	padding: 2vw;
+	padding-bottom: 4vw;
+	margin-bottom: 10vw;
+	background-color: rgb(251, 251, 251);
+}
+
+.title {
+	font-size: 4.2vh;
+	font-family: "IBM Plex Serif", serif;
+}
+
+.items {
+	font-size: 3vh;
+	font-family: "Times New Roman", Times, serif;
+	font-weight: 500;
+}
+
+@media only screen and (max-width: 768px) {
+	.receipt {
+		width: 100%;
+	}
+}

@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import auth from '../auth/auth'
 import {withRouter} from 'react-router-dom'
+import "./Ready.css"
 
 const Ready = (props) => {
     const [ready, setReady]= useState([])
@@ -37,7 +38,7 @@ const Ready = (props) => {
 
     return (
         <div>
-            <button onClick={
+            <button className="button" onClick={
                 ()=>{
                     auth.logout(()=>{
                         props.history.push("/admin/login")
@@ -46,25 +47,24 @@ const Ready = (props) => {
             }>
                 Logout
             </button>
-            <button onClick={
+            <button className="buttonB" onClick={
                 ()=>{
                     props.history.push("/admin/519924812089420/orders")
                 }
             }>
                 Pending Orders
             </button>
-            <h1>Ready orders here:</h1>
+            <h1 className="header">Ready Orders</h1>
             {!ready ? <h3>No ready orders at this time</h3> : ready.map(o=>{
                 return(
-                <div key={o._id}>
+                <div className="order" key={o._id}>
                     <br/>
-                    <p>ORDER#{o._id}</p>
-                    <p>NAME: {o.lname}, {o.fname}</p>
-                    <p>ENTREE: {o.entree}</p>
-                    <p>APPETIZER: {o.appetizer}</p>
-                    <p>DRINK: {o.drink}</p>
-                    <p>COMMENTS: {o.comments}</p> 
-                    <button onClick={()=>deleteOrder(o._id)}>Delete</button>    
+                    <p>Name: {o.lname}, {o.fname}</p>
+                    <p>Entree: {o.entree}</p>
+                    <p>Appetizer: {o.appetizer}</p>
+                    <p>Drink: {o.drink}</p>
+                    <p>Comments: {o.comments}</p> 
+                    <button className="buttonR" onClick={()=>deleteOrder(o._id)}>Delete</button>    
                 </div>  
             )}) }
         </div>

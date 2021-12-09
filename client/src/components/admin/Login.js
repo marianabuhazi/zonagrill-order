@@ -46,15 +46,15 @@ const Login = (props) => {
                     Username
                     <span className="star"> *</span>
                 </label>
-                <input className="input" type="text" onChange={e=>setUser(e.target.value)} ></input>
+                <input className="inputLogin" type="text" onChange={e=>setUser(e.target.value)} ></input>
                 <br/>
                 <label className="label">
                     Password
                     <span className="star"> *</span>
                 </label>
-                <input className="input" type="text" onChange={e=>setPw(e.target.value)}></input>
+                <input className="inputLogin" type="text" onChange={e=>setPw(e.target.value)}></input>
                 <br/>
-                <button onClick={signIn}>Sign in</button>
+                <button className="signin" onClick={signIn}>Sign in</button>
                 <h3>{mess}</h3>
             </form> 
             <h5>This page is for admins only. If you are not an admin, please return to order</h5>

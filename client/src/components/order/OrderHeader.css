@@ -1,5 +1,5 @@
 .logo {
-	width: 30rem;
+	width: 45vh;
 	padding: 5px;
 	display: block;
 	margin: auto;
@@ -9,5 +9,14 @@
 	font-family: "IBM Plex Serif", serif;
 	color: #3c2414;
 	margin: 2%;
-	font-size: 4.5vh;
+	font-size: 2.1rem;
+}
+
+@media only screen and (max-width: 425px) {
+	.logo {
+		width: 80%;
+	}
+	.eventName {
+		font-size: 1.5rem;
+	}
 }
