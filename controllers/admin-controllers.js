@@ -1,10 +1,11 @@
 const HttpError=require('../models/http-err')
 const {validationResult}=require('express-validator')
 const Order = require('../models/order')
+require('dotenv').config();
 
 const DUMMY_USER={
-    username:'yackselys',
-    password:'analisamelculo'
+    username:process.env.USERNAME,
+    password:process.env.PASSWORD
 }
 
 //returns all ordered labeled as ready

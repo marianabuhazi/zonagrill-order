@@ -64,7 +64,7 @@ const Ready = (props) => {
                     <p>Appetizer: {o.appetizer}</p>
                     <p>Drink: {o.drink}</p>
                     <p>Comments: {o.comments}</p> 
-                    <button className="buttonR" onClick={()=>deleteOrder(o._id)}>Delete</button>    
+                    {/* <button className="buttonR" onClick={()=>deleteOrder(o._id)}>Delete</button>     */}
                 </div>  
             )}) }
         </div>
