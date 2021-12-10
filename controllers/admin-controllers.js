@@ -4,7 +4,7 @@ const Order = require('../models/order')
 
 const DUMMY_USER={
     username:'yackselys',
-    password:'test'
+    password:'analisamelculo'
 }
 
 //returns all ordered labeled as ready

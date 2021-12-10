@@ -12,6 +12,7 @@ const Confirmation = ({order}) => {
             <h3 className='screenshot'>Take a screenshot of your order to show at the window.</h3>
                 <div className="receipt">
                     <h1 className='title'>RECEIPT</h1>
+                    <h2 className='items'>Name: {order.lname}, {order.fname}</h2>
                     <h2 className='items'>Entree: {order.entree}</h2>
                     <h2 className='items'>Appetizer: {order.appetizer}</h2>
                     <h2 className='items'>Drink: {order.drink}</h2>

@@ -94,6 +94,11 @@ const OrderForm = (props) => {
             <br/>
             <h2 className="subtitle">2. Order Information</h2>
             <div className="section">
+            <label className="label">Check out our menu for ingredients and images:</label>
+                <a target="_blank" rel="noopener noreferrer" href="http://zonagrill.us/menu.html">Zona Grill Menu</a>
+                <a target="_blank" rel="noopener noreferrer" href="http://zonagrill.us/gallery.html">Zona Grill Food Gallery</a>
+                <br/>
+                <label className="">Note: not all items on menu are available for selection</label>
                 <div className="question">
                     <label className="label">
                         Choose an appetizer
@@ -114,7 +119,17 @@ const OrderForm = (props) => {
                     </label>
                     <select className="input" onChange={e=>setEntree(e.target.value)}>
                         {
-                            ["","None", "Pepito", "Arepa", "Burger", "Cachapa"].map((option)=>{
+                            ["","None", "Beef Caraqueña", 
+                            "Chicken Caraqueña",
+                            "Chicken Pepito",
+                            "Cachapa with cheese",
+                            "Queen Pepia Arepa",
+                            "Chicken Arepa",
+                            "Grilled Pork Arepa",
+                            "White Cheese Arepa",
+                            "Gouda Cheese Arepa",
+                            "Pelua Arepa",
+                            "Catira Arepa"].map((option)=>{
                                 return <option key={option}>{option}</option>
                             })
                         }
@@ -127,7 +142,12 @@ const OrderForm = (props) => {
                     </label>
                     <select className="input" onChange={e=>setDrink(e.target.value)}>
                         {
-                            ["","None", "Fresscolita", "Coca Cola", "Malta", "Sprite"].map((option)=>{
+                            ["","None", "Water bottle",
+                            "Coke",
+                            "Zero",
+                            "Sprite",
+                            "Apple Postobon", 
+                            "Strawberry Frescolita"].map((option)=>{
                                 return <option key={option}>{option}</option>
                             })
                         }
