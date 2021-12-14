@@ -31,7 +31,7 @@ const OrderForm = (props) => {
             'comments':comments
         }
         if(email===undefined || fname===undefined || lname===undefined 
-            || appetizer===undefined || entree===undefined || drink===undefined){
+            || appetizer===undefined || entree===undefined || drink===undefined || comments===undefined){
             alert("Please fill out all the required fields")
         }
         else{
@@ -155,10 +155,10 @@ const OrderForm = (props) => {
                 </div>
             </div>
             <br/>
-            <h2 className="subtitle">3. Comments (optional)</h2>
+            <h2 className="subtitle">3. Comments <span className="star"> *</span></h2>
             <div className="question">
                 <label className="number">
-                    Or phone number if you'd like us to call when the order is ready!
+                 Please specify your SHIFT NUMBER (1, 2, or 3), and PHONE NUMBER for us to call when your order is ready! 
                 </label>
                 <input className="inputBox" type="text" onChange={e=>setComments(e.target.value)}></input>
             </div>
