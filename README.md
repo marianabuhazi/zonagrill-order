@@ -10,5 +10,8 @@ Requires MongoDB credentials, and Network approval.
 cd client npm start.
 cd .. npm start.
 
+# Run on Heroku
+Currently not live.
+Requires Config Vars to be set up with MongoDB URI credentials, login username and login password. Network approval must be set to 0.0.0.0, and cluster must be unpaused.
 
 # Thanks for ordering at Zona Grill🔥
