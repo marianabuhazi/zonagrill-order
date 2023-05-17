@@ -7,7 +7,7 @@ const router= express.Router();
 router.post('/', 
 [
     check('fname').not().isEmpty(), 
-    check('email').normalizeEmail().isEmail(),
+    check('phoneNumber').not().isEmpty(),
     check('lname').not().isEmpty(), 
     check('appetizer').not().isEmpty(), 
     check('entree').not().isEmpty(), 

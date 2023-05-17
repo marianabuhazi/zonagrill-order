@@ -6,8 +6,8 @@ import "./Order.css";
 const Order = ({setOrder}) => { 
     return (
         <div>
-            <a href="/admin/login"><button className="btn">ADMIN LOGIN</button></a>
-            <Header name="Goodyear Belts Corporate Event"/>
+            <a href="/admin/login"><button className="btn">ADMIN LOGIN</button></a><br/><br/><br/>
+            <Header name="Goodyear Belts Corporate Event"/><br/><br/>
             <OrderForm setOrder={setOrder}/>
         </div>
     )

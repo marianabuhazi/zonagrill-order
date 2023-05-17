@@ -4,7 +4,7 @@ import submitted from './Submitted'
 import './OrderForm.css'
 
 const OrderForm = (props) => {
-    const [email, setEmail] = useState();
+    const [phoneNumber, setPhoneNumber] = useState();
     const [fname, setFName] = useState();
     const [lname, setLName] = useState();
     const [appetizer, setAppetizer] = useState();
@@ -22,7 +22,7 @@ const OrderForm = (props) => {
         e.preventDefault()
         let newOrder={
             'id':1,
-            'email':email,
+            'phoneNumber':phoneNumber,
             'fname':fname,
             'lname':lname,
             'appetizer':appetizer,
@@ -30,8 +30,8 @@ const OrderForm = (props) => {
             'drink':drink,
             'comments':comments
         }
-        if(email===undefined || fname===undefined || lname===undefined 
-            || appetizer===undefined || entree===undefined || drink===undefined || comments===undefined){
+        if(phoneNumber===undefined || fname===undefined || lname===undefined 
+            || appetizer===undefined || entree===undefined || drink===undefined){
             alert("Please fill out all the required fields")
         }
         else{
@@ -42,7 +42,7 @@ const OrderForm = (props) => {
                     'Content-Type': 'application/json'
                 },
                 body:JSON.stringify({
-                    email:newOrder.email,
+                    phoneNumber:newOrder.phoneNumber,
                     fname:newOrder.fname,
                     lname:newOrder.lname,
                     appetizer:newOrder.appetizer,
@@ -66,15 +66,20 @@ const OrderForm = (props) => {
     return (
         <div>
             <form className="form">
+            <h2 className="subtitle">Introduction</h2>
+            <p className="disclaimer">Zona Grill Venezuelan Food is happy to serve you at this event! In order to expedite our service we ask that you submit your order in advance using the form below. 
+            <br/><br/>
+            Orders will only be accepted until <span className="deadline">May 21, 2023 @ 6pm.</span></p>
+            <hr/><br/>
             <h2 className="subtitle">1. Personal Information</h2>
             <label className="">You must enter valid information to proceed</label>
             <div className="section">
                 <div className="question">
                     <label className="label">
-                        eMail
+                        Phone Number
                         <span className="star"> *</span>
                     </label>
-                    <input className="input" type="text" onChange={e=>setEmail(e.target.value)}></input>
+                    <input className="input" type="text" onChange={e=>setPhoneNumber(e.target.value)}></input>
                 </div>
                 <div className="question">
                     <label className="label">
@@ -92,11 +97,10 @@ const OrderForm = (props) => {
                 </div>
             </div>
             <br/>
-            <h2 className="subtitle">2. Order Information</h2>
+            <h2 className="subtitle">2. Order</h2>
             <div className="section">
             <label className="label">Check out our menu for ingredients and images:</label>
-                <a target="_blank" rel="noopener noreferrer" href="http://zonagrill.us/menu.html">Zona Grill Menu</a>
-                <a target="_blank" rel="noopener noreferrer" href="http://zonagrill.us/gallery.html">Zona Grill Food Gallery</a>
+                <a target="_blank" rel="noopener noreferrer" href="http://zonagrill.us/menu" className="btn" id="btnMenu">Zona Grill Menu</a>
                 <br/>
                 <label className="">Note: not all items on menu are available for selection</label>
                 <div className="question">
@@ -155,14 +159,14 @@ const OrderForm = (props) => {
                 </div>
             </div>
             <br/>
-            <h2 className="subtitle">3. Comments <span className="star"> *</span></h2>
+            <h2 className="subtitle">3. Comments </h2>
             <div className="question">
-                <label className="number">
-                 Please specify your SHIFT NUMBER (1, 2, or 3), and PHONE NUMBER for us to call when your order is ready! 
+                <label className="label">
+                 Use this space to make any modifications to your order, or leave a note to the chef.
                 </label>
                 <input className="inputBox" type="text" onChange={e=>setComments(e.target.value)}></input>
             </div>
-            <button className="submit" onClick={submitOrder}>Submit</button> 
+            <button className="submit" onClick={submitOrder}>SUBMIT</button> 
         </form>
         </div>
     )

@@ -1,11 +1,11 @@
 .btn{
-    float:right;
+    position:absolute;
     cursor: pointer;
     border: 0;
     border-radius: 4px;
     font-weight: 600;
     font-family: 'Wix Madefor Text', sans-serif;
-    margin: 0 10px;
+    margin: 10px;
     width: 8rem;
     padding: 10px 0;
     transition: 0.4s;
@@ -16,4 +16,12 @@
 .btn:hover {
     color: white;
     background-color: #FF9100;
-  }
+}
+
+@media only screen and (max-width: 425px) {
+	.btn{
+        width:6rem;
+        padding: 8px 10px;
+        font-size:0.6rem;
+    }
+}

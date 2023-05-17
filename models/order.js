@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 const orderSchema = new Schema({
-    email:{ type: String, required:true },
+    phoneNumber:{ type: String, required:true },
     fname:{ type: String, required:true },
     lname:{ type: String, required:true },
     appetizer:{ type: String, required:true },

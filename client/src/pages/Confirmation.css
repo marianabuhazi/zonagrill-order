@@ -4,6 +4,7 @@
 	padding: 2.5vh;
 	padding-bottom: 1vh;
 	font-family: 'Wix Madefor Text', sans-serif;
+	border-radius:25px;
 }
 .screenshot {
 	color: rgb(241, 54, 54);
@@ -23,14 +24,13 @@
 }
 
 .title {
-	font-size: 4.2vh;
+	font-size: 1.5rem;
 	font-family: 'Wix Madefor Text', sans-serif;
 }
 
 .items {
-	font-size: 3vh;
+	font-size: 1rem;
 	font-family: 'Wix Madefor Text', sans-serif;
-	font-weight: 500;
 }
 
 @media only screen and (max-width: 768px) {
