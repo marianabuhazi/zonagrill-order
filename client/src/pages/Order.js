@@ -1,24 +1,14 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 import Header from '../components/order/OrderHeader'
 import OrderForm from '../components/order/OrderForm.js'
-
-    
-    // const [valid, setValid] = useState(false)
-    
-    // setValid(validate(order[props.qType],props.validators))
-    
-    // const completeOrderHandler = () => {
-    //     completeOrder=order;
-    // }
-
+import "./Order.css";
 
 const Order = ({setOrder}) => { 
     return (
-        <div className="body">
-        <Header name="Thermofisher Corporate Event"/>
-        <OrderForm setOrder={setOrder}/>
-        <Link to="/admin/login">Admin Login</Link>
+        <div>
+            <a href="/admin/login"><button className="btn">ADMIN LOGIN</button></a>
+            <Header name="Goodyear Belts Corporate Event"/>
+            <OrderForm setOrder={setOrder}/>
         </div>
     )
 }

@@ -3,14 +3,14 @@
 	font-size: 4vh;
 	padding: 2.5vh;
 	padding-bottom: 1vh;
-	font-family: "IBM Plex Serif", serif;
+	font-family: 'Wix Madefor Text', sans-serif;
 }
 .screenshot {
 	color: rgb(241, 54, 54);
 	font-size: 2h;
 	padding-left: 3.3vh;
 	padding-bottom: 1;
-	font-family: "IBM Plex Serif", serif;
+	font-family: 'Wix Madefor Text', sans-serif;
 }
 
 .receipt {
@@ -24,12 +24,12 @@
 
 .title {
 	font-size: 4.2vh;
-	font-family: "IBM Plex Serif", serif;
+	font-family: 'Wix Madefor Text', sans-serif;
 }
 
 .items {
 	font-size: 3vh;
-	font-family: "Times New Roman", Times, serif;
+	font-family: 'Wix Madefor Text', sans-serif;
 	font-weight: 500;
 }
 
