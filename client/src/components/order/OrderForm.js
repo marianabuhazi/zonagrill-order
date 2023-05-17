@@ -123,17 +123,29 @@ const OrderForm = (props) => {
                     </label>
                     <select className="input" onChange={e=>setEntree(e.target.value)}>
                         {
-                            ["","None", "Beef Caraqueña", 
-                            "Chicken Caraqueña",
-                            "Chicken Pepito",
-                            "Cachapa with cheese",
-                            "Queen Pepia Arepa",
-                            "Chicken Arepa",
-                            "Grilled Pork Arepa",
-                            "White Cheese Arepa",
-                            "Gouda Cheese Arepa",
-                            "Pelua Arepa",
-                            "Catira Arepa"].map((option)=>{
+                            ["","None",
+                            "Cachapa: Guayanés Cheese",
+                            "Mixed Cachapa: Guayanés Cheese & Shredded Beef",
+                            "Mixed Cachapa: Guayanés Cheese & Shredded Chicken",
+                            "Caraqueña: Beef Patty",
+                            "Caraqueña: Grilled Chicken",
+                            "Caraqueña: Grilled Pork",
+                            "Arepa: Reina Pepia",
+                            "Arepa: Shredded Beef",
+                            "Arepa: Shredded Chicken",
+                            "Arepa: Grilled Pork",
+                            "Arepa: Shredded White Cheese",
+                            "Arepa: Shredded Gouda Cheese",
+                            "Arepa: Soft Guayanés Cheese",
+                            "Arepa: Pelua",
+                            "Arepa: Pelua Vieja",
+                            "Arepa: Catira",
+                            "Arepa: Catira Vieja",
+                            "Arepa: Sifrina",
+                            "Pepito: Steak",
+                            "Pepito: Grilled Chicken",
+                            "Pepito: Mixed"
+                            ].map((option)=>{
                                 return <option key={option}>{option}</option>
                             })
                         }
@@ -150,7 +162,8 @@ const OrderForm = (props) => {
                             "Coke",
                             "Zero",
                             "Sprite",
-                            "Apple Postobon", 
+                            "Passion Fruit Juice", 
+                            "Papelón con Limón (Brown Sugar Lemonade)",
                             "Strawberry Frescolita"].map((option)=>{
                                 return <option key={option}>{option}</option>
                             })
@@ -166,6 +179,10 @@ const OrderForm = (props) => {
                 </label>
                 <input className="inputBox" type="text" onChange={e=>setComments(e.target.value)}></input>
             </div>
+            <hr/><br/>
+            <h2 className="subtitle">Warning!</h2>
+            <p className="deadline">Please revise your order before submitting to avoid mistakes. Only submit one form per person.
+            <br/><br/></p>
             <button className="submit" onClick={submitOrder}>SUBMIT</button> 
         </form>
         </div>
