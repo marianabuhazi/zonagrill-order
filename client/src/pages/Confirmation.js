@@ -6,7 +6,7 @@ import './Confirmation.css'
 const Confirmation = ({order}) => {
     return (
         <div>
-            <Header name="Thermofisher Corporate Event"/> 
+            <Header name="Goodyear Belts Corporate Event"/> 
             {order && <div  key={order.id}>
             <h1 className='thankYou'>Thank you for ordering, {order.fname}!</h1>
             <h3 className='screenshot'>Take a screenshot of your order for your records:</h3>
