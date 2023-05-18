@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Link, withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 import auth from '../auth/auth'
 import '../order/OrderForm.css'
 
@@ -40,25 +40,28 @@ const Login = (props) => {
 
     return (
         <div>
-            <h1>Admin Login</h1>
+            <a href="/order"><button className="btn">BACK</button></a><br/><br/><br/>
+            <h1 className="title">Admin Login</h1>
+            <h2 className="adminDisclaimer">This page is for administrators only. If you are not an administrator, please return to order.</h2>
+            <br/>
+            <br/>
             <form className="admin">
                 <label className="label">
                     Username
                     <span className="star"> *</span>
                 </label>
-                <input className="inputLogin" type="text" onChange={e=>setUser(e.target.value)} ></input>
+                <input className="input" type="text" onChange={e=>setUser(e.target.value)} ></input>
                 <br/>
                 <label className="label">
                     Password
                     <span className="star"> *</span>
                 </label>
-                <input className="inputLogin" type="text" onChange={e=>setPw(e.target.value)}></input>
+                <input className="input" type="text" onChange={e=>setPw(e.target.value)}></input>
                 <br/>
-                <button className="signin" onClick={signIn}>Sign in</button>
-                <h3>{mess}</h3>
+                <button className="btn" onClick={signIn}>SIGN IN</button>
+                <h2>{mess}</h2>
             </form> 
-            <h5>This page is for admins only. If you are not an admin, please return to order</h5>
-            <Link to="/order">Back to Order</Link>
+            <br/><br/><br/>
         </div>
     )
 }

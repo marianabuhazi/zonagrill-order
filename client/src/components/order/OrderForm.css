@@ -39,9 +39,9 @@
 }
 
 .admin {
-	display: block;
 	width: 100%;
-	padding: 2vw;
+	padding: 2rem;
+	padding-bottom:5rem;
 	background-color: rgb(245, 245, 245);
 }
 .question {
@@ -53,6 +53,7 @@
 
 .label {
 	font-size: 1rem;
+	font-family: 'Wix Madefor Text', sans-serif;
 	margin-bottom: 8px;
 }
 
@@ -63,31 +64,12 @@
 .input {
 	display: block;
 	border-radius: 0px;
-	width: 35%;
-	padding: 6px;
+	width: 26rem;
+	padding: 8px;
 	border: solid rgb(155, 155, 155) 1.2px;
 	box-shadow: 0.5px 0.5px rgb(155, 155, 155);
 	margin-top: 10px;
 	border-radius:10px;
-}
-.inputLogin {
-	display: block;
-	border-radius: 0px;
-	width: 40%;
-	padding: 4px;
-	border: solid rgb(155, 155, 155) 1.2px;
-	margin-top: 10px;
-}
-
-.inputBox {
-	display: block;
-	width: 35vw;
-	height: 8rem;
-	border: solid rgb(155, 155, 155) 1.2px;
-	margin-top: 1rem;
-	border-radius:10px;
-	overflow-y: scroll;
-	margin-bottom:1rem;
 }
 
 .star {
@@ -97,6 +79,7 @@
 
 .subtitle {
 	font-size: 1.5rem;
+	padding-bottom:1rem;
 }
 
 .disclaimer{
@@ -118,25 +101,32 @@
 	text-decoration: none;
 }
 
+.title{
+	font-size:2rem;
+	font-family: 'Wix Madefor Text', sans-serif;
+	text-align:center;
+}
+.adminDisclaimer{
+	font-size:1rem;
+	font-family: 'Wix Madefor Text', sans-serif;
+	text-align:center;
+	font-weight:400;
+}
+
 @media only screen and (max-width: 1024px) {
 	.input {
 		width: 70%;
-		padding: 3px;
-	}
-	.inputBox {
-		width: 70%;
-		height: 10vw;
 	}
 }
 
 @media only screen and (max-width: 768px) {
 	.form {
-		width:70%;
+		width:90%;
 		padding-bottom: 22vw;
 		margin-bottom: 10rem;
 	}
 	.admin {
-		width: 100%;
+		width: 82%;
 	}
 	.inputLogin {
 		display: block;
@@ -153,15 +143,12 @@
 
 @media only screen and (max-width: 425px) {
 	.input {
-		width: 100%;
+		width: 90%;
+		font-size: 16px;
 	}
 	.form {
 		padding: 2rem;
 		width:80%;
 		padding-bottom:5rem;
-	}
-	.inputBox {
-		width: 100%;
-		height:8rem;
 	}
 }

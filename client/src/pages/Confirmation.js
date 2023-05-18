@@ -1,27 +1,62 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 import Header from '../components/order/OrderHeader'
 import './Confirmation.css'
 
 const Confirmation = ({order}) => {
     return (
-        <div>
-            <Header name="Goodyear Belts Corporate Event"/> 
-            {order && <div  key={order.id}>
-            <h1 className='thankYou'>Thank you for ordering, {order.fname}!</h1>
-            <h3 className='screenshot'>Take a screenshot of your order for your records:</h3>
-                <div className="receipt">
-                    <h1 className='title'>RECEIPT</h1>
-                    <h2 className='items'>Name: {order.lname}, {order.fname}</h2>
-                    <h2 className='items'>Entree: {order.entree}</h2>
-                    <h2 className='items'>Appetizer: {order.appetizer}</h2>
-                    <h2 className='items'>Drink: {order.drink}</h2>
-                    <h2 className='items'>Comments: {order.comments}</h2>
-                    <br/>
+    <div>
+        <Header name="Goodyear Belts Corporate Event"/> 
+        <h1 className='thankYou'>We've received your order, {order.fname}!</h1>
+        <h2 className='screenshot'>Take a screenshot of this receipt for your records.</h2>
+
+        <div class="container">
+            <div class="receipt_header">
+            <h1>ORDER CONFIRMATION<span>Zona Grill</span></h1>
+            <h2 id="capitalize">Name: {order.lname}, {order.fname}<span>Tel: {order.phoneNumber}</span></h2>
+            </div>
+            <div class="receipt_body">
+                <div class="items">
+                    <table>
+                        <thead>
+                            <th>OPTION</th>
+                            <th>ITEM</th>
+                        </thead>
+                
+                        <tbody>
+                            <tr>
+                                <td>APP.</td>
+                                <td>{order.appetizer}</td>
+                            </tr>
+                            <tr>
+                                <td>ENT.</td>
+                                <td>{order.entree}</td>
+                            </tr>
+                            <tr>
+                                <td>DRI.</td>
+                                <td>{order.drink}</td>
+                            </tr>
+                        </tbody>
+
+                        <tfoot>
+                            <tr>
+                                <td>Comments</td>
+                                <td></td>
+                            </tr>
+
+                            <tr>
+                                <td>{order.comments ? order.comments : "None"}</td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+
+                    </table>
                 </div>
-            </div>}
-            <Link to="/order">Back to Order</Link>
-        </div>
+
+            </div>
+                <h3>Thank You!</h3>
+            </div>
+    </div>
+    
     )
 }
 

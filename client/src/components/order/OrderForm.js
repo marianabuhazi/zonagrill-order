@@ -72,7 +72,7 @@ const OrderForm = (props) => {
             Orders will only be accepted until <span className="deadline">May 21, 2023 @ 6pm.</span></p>
             <hr/><br/>
             <h2 className="subtitle">1. Personal Information</h2>
-            <label className="">You must enter valid information to proceed</label>
+            <label className="">You must fill out all required (<span className="star"> *</span> ) fields to proceed.</label>
             <div className="section">
                 <div className="question">
                     <label className="label">
@@ -101,8 +101,6 @@ const OrderForm = (props) => {
             <div className="section">
             <label className="label">Check out our menu for ingredients and images:</label>
                 <a target="_blank" rel="noopener noreferrer" href="http://zonagrill.us/menu" className="btn" id="btnMenu">Zona Grill Menu</a>
-                <br/>
-                <label className="">Note: not all items on menu are available for selection</label>
                 <div className="question">
                     <label className="label">
                         Choose an appetizer
@@ -182,12 +180,13 @@ const OrderForm = (props) => {
                 <label className="label">
                  Use this space to make any modifications to your order, or leave a note to the chef.
                 </label>
-                <input className="inputBox" type="text" onChange={e=>setComments(e.target.value)}></input>
+                <input className="input" type="text" onChange={e=>setComments(e.target.value)}></input>
             </div>
+            <br/>
             <hr/><br/>
             <h2 className="subtitle">Warning!</h2>
-            <p className="deadline">Please revise your order before submitting to avoid mistakes. Only submit one form per person.
-            <br/><br/></p>
+            <p className="deadline">Please revise your order before submitting to avoid mistakes. Only submit one form per person.<br/></p>
+            <label>If you had issues using this form, email zonagrillmiami@gmail.com.</label><br/><br/>
             <button className="submit" onClick={submitOrder}>SUBMIT</button> 
         </form>
         </div>
