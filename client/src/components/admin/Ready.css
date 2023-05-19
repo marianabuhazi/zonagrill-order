@@ -70,15 +70,105 @@
 	color: black;
 	font-size: 4vh;
 	padding: 2.5vh;
-	padding-bottom: 1vh;
+	padding-bottom: 0;
+	margin-bottom:0;
 	font-family: 'Wix Madefor Text', sans-serif;
 }
 
 .order {
 	display: block;
 	width: 80%;
-	padding: 3vw;
-	margin-top: 1vw;
-	margin-bottom: 2vw;
+	padding: 0.75em;
+	padding-left: 1.75rem;
+	margin: 1.5rem 0;
+	margin-left:0.5rem;
 	background-color: rgb(251, 251, 251);
+	border: 1px solid rgb(145, 145, 145);
+	font-family: 'Wix Madefor Text', sans-serif;
+	border-radius:10px;
+}
+.announcement{
+	font-size:1.25rem;
+	font-family: 'Wix Madefor Text', sans-serif;
+	text-align:left;
+	margin:1rem;
+	font-weight:400;
+}
+.btn{
+    position:relative;
+    cursor: pointer;
+    border: 0;
+    border-radius: 4px;
+    font-weight: 600;
+    font-family: 'Wix Madefor Text', sans-serif;
+    margin: 10px;
+    width: 8rem;
+    padding: 10px 0;
+    transition: 0.4s;
+    color: #FF9100;
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid #FF9100;
+}
+.btn:hover {
+    color: white;
+    background-color: #FF9100;
+}
+#black{
+	color:black;
+	border: 1px solid black;
+}
+#black:hover {
+    color: white;
+    background-color: black;
+}
+#green{
+	color:green;
+	border: 1px solid green;
+}
+#green:hover {
+    color: white;
+    background-color: green;
+}
+#blue{
+	color:rgb(5, 110, 175);
+	border: 1px solid rgb(5, 110, 175);
+}
+#blue:hover {
+    color: white;
+    background-color: rgb(5, 110, 175);
+}
+#red{
+	color:red;
+	border: 1px solid red;
+}
+#red:hover {
+    color: white;
+    background-color: red;
+}
+#gray{
+	color:gray;
+	border: 1px solid gray;
+}
+#gray:hover {
+    color: white;
+    background-color: gray;
+}
+#bold{
+	font-weight:600;
+}
+.orderContainer{
+	height:100rem;
+	overflow-y: scroll;
+}
+#margin{
+	margin-left:0.65rem;
+	margin-top:1rem;
+}
+.count{
+	font-family: 'Wix Madefor Text', sans-serif;
+	font-size:1rem;
+	background-color: rgb(245, 252, 245);
+	padding:1rem;
+	width:80%;
+	border-radius:10px;
 }

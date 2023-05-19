@@ -46,6 +46,7 @@ const Login = (props) => {
             <br/>
             <br/>
             <form className="admin">
+                <h2 className="adminDisclaimer" id="alert">{mess}</h2>
                 <label className="label">
                     Username
                     <span className="star"> *</span>
@@ -56,12 +57,11 @@ const Login = (props) => {
                     Password
                     <span className="star"> *</span>
                 </label>
-                <input className="input" type="text" onChange={e=>setPw(e.target.value)}></input>
+                <input className="input" type="password" onChange={e=>setPw(e.target.value)}></input>
                 <br/>
                 <button className="btn" onClick={signIn}>SIGN IN</button>
-                <h2>{mess}</h2>
+                <br/><br/><br/>
             </form> 
-            <br/><br/><br/>
         </div>
     )
 }

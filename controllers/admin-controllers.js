@@ -15,11 +15,11 @@ const readyOrders= async(req,res,next)=>{
         orders= await Order.find({ready:'ready'})
     }
     catch (err){
-        const error= new HttpError('There was an error getting ready orders',500);
+        const error= new HttpError('There was an error getting ready orders.',500);
         return next(error);
     }
     if(orders.length===0){
-        const error= new HttpError('No ready orders found',404);
+        const error= new HttpError('No ready orders found.',404);
         return next(error);
     }
     res.json({orders:orders})
@@ -31,14 +31,41 @@ const pendingOrders= async (req,res,next)=>{
         orders= await Order.find({ready:'pending'})
     }
     catch (err){
-        const error= new HttpError('There was an error getting pending orders',500);
+        const error= new HttpError('There was an error getting pending orders.',500);
         return next(error);
     }
     if(orders.length===0){
-        const error= new HttpError('No pending orders found',404);
+        const error= new HttpError('No pending orders found.',404);
         return next(error);
     }
     res.json({orders:orders})
+}
+
+const orderCount = async (req,res,next)=>{
+    const readyFlag= req.params.ready
+    let orderCount;
+    try{
+        orderCount= await Order.countDocuments({ ready: readyFlag });
+    }
+    catch (err){
+        const error= new HttpError('There was an error getting pending order count.',500);
+        return next(error);
+    }
+    res.json({orderCount:orderCount})
+}
+
+const itemCount = async (req,res,next)=>{
+    const option= req.params.option
+    const item= req.params.item
+    let orderCount;
+    try{
+        orderCount= await Order.where({ready:"pending"}).where(option, item).countDocuments()
+    }
+    catch (err){
+        const error= new HttpError('There was an error getting pending order count.',500);
+        return next(error);
+    }
+    res.json({orderCount:orderCount})
 }
 
 const deleteOrder= async (req,res,next)=>{
@@ -48,14 +75,14 @@ const deleteOrder= async (req,res,next)=>{
         order= await Order.findById(orderId);
     }
     catch (err){
-        const error= new HttpError('There was an error finding the order',500);
+        const error= new HttpError('There was an error finding the order.',500);
         return next(error);
     }
     try{
         await order.remove();
     }
     catch(err){
-        const error= new HttpError('There was an error deleting the order',500);
+        const error= new HttpError('There was an error deleting the order.',500);
         return next(error);
     }
     res.json("Order successfully deleted")
@@ -68,7 +95,7 @@ const modifyOrder= async (req,res,next)=>{
         orderToChange= await Order.findById(orderId);
     }
     catch (err){
-        const error= new HttpError('There was an error finding the order',500);
+        const error= new HttpError('There was an error finding the order.',500);
         return next(error);
     }
     if(!orderToChange){
@@ -80,7 +107,7 @@ const modifyOrder= async (req,res,next)=>{
         await orderToChange.save();
     }
     catch (err){
-        const error= new HttpError('There was an error modifying the order',500);
+        const error= new HttpError('There was an error modifying the order.',500);
         return next(error);
     }
     res.json({order:orderToChange.toObject({getters:true})}).status(200)
@@ -89,20 +116,22 @@ const modifyOrder= async (req,res,next)=>{
 const login= (req,res,next)=>{
     const errors= validationResult(req);
     if(!errors.isEmpty()){
-        throw new HttpError('Invalid input. Please fill out all the required fields', 422)
+        throw new HttpError('Invalid input. Please fill out all the required fields.', 422)
     }
     const {username, password}= req.body;
     if(DUMMY_USER.password===password && DUMMY_USER.username===username){
         return res.json({message:"Logged in!"})
     }
     else{
-        throw new HttpError('Incorrect username or password', 401) 
+        throw new HttpError('Incorrect username or password!', 401) 
     }
     
 }
 
 exports.readyOrders=readyOrders;
 exports.pendingOrders=pendingOrders;
+exports.orderCount=orderCount;
+exports.itemCount=itemCount;
 exports.deleteOrder=deleteOrder;
 exports.modifyOrder=modifyOrder;
 exports.login=login;

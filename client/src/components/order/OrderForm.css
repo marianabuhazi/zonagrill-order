@@ -41,7 +41,7 @@
 .admin {
 	width: 100%;
 	padding: 2rem;
-	padding-bottom:5rem;
+	padding-bottom:2rem;
 	background-color: rgb(245, 245, 245);
 }
 .question {
@@ -111,6 +111,11 @@
 	font-family: 'Wix Madefor Text', sans-serif;
 	text-align:center;
 	font-weight:400;
+}
+
+#alert{
+	color:rgb(223, 0, 0);
+	text-align: left;
 }
 
 @media only screen and (max-width: 1024px) {
