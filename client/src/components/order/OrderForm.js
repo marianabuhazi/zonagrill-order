@@ -65,8 +65,8 @@ const OrderForm = (props) => {
     }
     return (
         <div>
-            {/* <h1 className="subtitle" style={{textAlign:"center"}}>This form has closed.</h1> */}
-            <form className="form">
+            <h1 className="subtitle" style={{textAlign:"center"}}>This form has closed.</h1>
+            {/* <form className="form">
             <h2 className="subtitle">Introduction</h2>
             <p className="disclaimer">Zona Grill Venezuelan Food is happy to serve you at this event! In order to expedite our service we ask that you submit your order in advance using the form below. 
             <br/><br/>
@@ -189,7 +189,7 @@ const OrderForm = (props) => {
             <p className="deadline">Please revise your order before submitting to avoid mistakes. Only submit one form per person.<br/></p>
             <label>If you had issues using this form, email zonagrillmiami@gmail.com.</label><br/><br/>
             <button className="submit" onClick={submitOrder}>SUBMIT</button> 
-        </form>
+        </form> */}
         </div>
     )
 }
