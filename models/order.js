@@ -9,6 +9,7 @@ const orderSchema = new Schema({
     appetizer:{ type: String, required:true },
     entree:{ type: String, required:true},
     drink:{ type: String, required:true },
+    dessert:{ type: String, required:true },
     comments:{type:String},
     ready:{ type: String, required:true}
 })

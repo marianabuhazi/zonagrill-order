@@ -5,7 +5,7 @@ import './Confirmation.css'
 const Confirmation = ({order}) => {
     return (
     <div>
-        <Header name="Goodyear Belts Corporate Event"/> 
+        <Header name="SEAFRIGO Group Corporate Event"/> 
         <h1 className='thankYou'>We've received your order, {order.fname}!</h1>
         <h2 className='screenshot'>Take a screenshot of this receipt for your records.</h2>
 
@@ -34,6 +34,10 @@ const Confirmation = ({order}) => {
                             <tr>
                                 <td>DRI.</td>
                                 <td>{order.drink}</td>
+                            </tr>
+                            <tr>
+                                <td>DES.</td>
+                                <td>{order.dessert}</td>
                             </tr>
                         </tbody>
 

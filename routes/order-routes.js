@@ -12,6 +12,7 @@ router.post('/',
     check('appetizer').not().isEmpty(), 
     check('entree').not().isEmpty(), 
     check('drink').not().isEmpty(), 
+    check('dessert').not().isEmpty(), 
     check('ready').not().isEmpty(), 
 ]
 ,orderControllers.submitOrder)

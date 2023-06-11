@@ -97,6 +97,7 @@ const Ready = (props) => {
                     <p><span id="bold">Entree:</span> {o.entree}</p>
                     <p>Appetizer: {o.appetizer}</p>
                     <p>Drink: {o.drink}</p>
+                    <p>Dessert: {o.dessert}</p>
                     <p>Comments: {o.comments}</p> 
                     <button className="btn" id="blue" onClick={()=>pendingOrder(o._id)}>PENDING</button> 
                     <button className="btn" id="red" onClick={()=>deleteOrder(o._id)}>DELETE</button>    

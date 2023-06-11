@@ -7,7 +7,7 @@ const Order = ({setOrder}) => {
     return (
         <div>
             <a href="/admin/login"><button className="btn">ADMIN LOGIN</button></a><br/><br/><br/>
-            <Header name="Goodyear Belts Corporate Event"/><br/><br/>
+            <Header name="SEAFRIGO Group Corporate Event"/><br/><br/>
             <OrderForm setOrder={setOrder}/>
         </div>
     )

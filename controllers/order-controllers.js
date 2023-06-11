@@ -7,7 +7,7 @@ const submitOrder= async (req,res,next)=>{
     if(!errors.isEmpty()){
         throw new HttpError('Please make sure all required fields are filled and valid.',422);
     }
-    const { phoneNumber, fname, lname, appetizer, drink, entree,comments, ready} = req.body;
+    const { phoneNumber, fname, lname, appetizer, drink, dessert, entree,comments, ready} = req.body;
     const createdOrder = new Order({
         phoneNumber,
         fname,
@@ -15,6 +15,7 @@ const submitOrder= async (req,res,next)=>{
         appetizer,
         entree,
         drink,
+        dessert,
         comments,
         ready
     })
