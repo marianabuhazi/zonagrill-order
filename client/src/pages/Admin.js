@@ -8,10 +8,12 @@ const Admin = (props) => {
     const [orderCount, setOrderCount]=useState(0)
     const [appetizerCount, setAppetizerCount] = useState(0)
     const [drinkCount, setDrinkCount] = useState(0)
+    const [dessertCount, setDessertCount] = useState(0)
     const [entreeCount, setEntreeCount] = useState(0)
     const [appetizer, setAppetizer] = useState("Appetizer")
     const [entree, setEntree] = useState("Entree")
     const [drink, setDrink] = useState("Drink")
+    const [dessert, setDessert] = useState("Dessert")
     const [hide, setHide] = useState(true)
 
     useEffect(()=>{
@@ -35,7 +37,6 @@ const Admin = (props) => {
                 })
                 const responseData=await response.json()
                 setOrderCount(responseData.orderCount);
-                console.log(responseData.message)
             }
             catch (err){
                 console.log(err)
@@ -54,7 +55,6 @@ const Admin = (props) => {
                 }
             })
             const responseData=await response.json()
-            console.log(responseData.message)
         }
         catch (err){
             console.log(err)
@@ -70,7 +70,6 @@ const Admin = (props) => {
             })
             const responseData=await response.json()
             setAppetizerCount(responseData.orderCount);
-            console.log(responseData.message)
         }
         catch (err){
             console.log(err)
@@ -86,7 +85,6 @@ const Admin = (props) => {
             })
             const responseData=await response.json()
             setEntreeCount(responseData.orderCount);
-            console.log(responseData.message)
         }
         catch (err){
             console.log(err)
@@ -102,7 +100,22 @@ const Admin = (props) => {
             })
             const responseData=await response.json()
             setDrinkCount(responseData.orderCount);
-            console.log(responseData.message)
+        }
+        catch (err){
+            console.log(err)
+        }
+    }
+
+    const getDessertCount = async (option, item) => {
+        try{
+            const response= await fetch(`/api/admin/orderCount/${option}/${item}`, {
+                method:'POST',
+                headers:{
+                    'Content-Type': 'application/json'
+                }
+            })
+            const responseData=await response.json()
+            setDessertCount(responseData.orderCount);
         }
         catch (err){
             console.log(err)
@@ -185,9 +198,17 @@ const Admin = (props) => {
                                 return <option key={option}>{option}</option>
                             })
                         }
-                    </select>
-            <button className="btn" id="gray"onClick={()=>{setHide(false); getDrinkCount("drink", drink); getEntreeCount("entree", entree); getAppetizerCount("appetizer", appetizer);}}>QUERY</button> 
-            {!hide && orderCount>0 ? <div id="margin" className='count'><p><span id="bold">{appetizer}</span>: {appetizerCount}</p><p><span id="bold">{entree}</span>: {entreeCount}</p><p><span id="bold">{drink}</span>: {drinkCount}</p></div> : null}
+                </select>
+                <select className="input" id="margin" onChange={e=>{setDessert(e.target.value); setHide(true);}}>
+                <option disabled selected>Dessert</option>
+                        {
+                            ["None","Tres Leches Cake", "Italian Brownie"].map((option)=>{
+                                return <option key={option}>{option}</option>
+                            })
+                        }
+                </select>
+            <button className="btn" id="gray"onClick={()=>{setHide(false); getDessertCount("dessert", dessert); getDrinkCount("drink", drink); getEntreeCount("entree", entree); getAppetizerCount("appetizer", appetizer);}}>QUERY</button> 
+            {!hide && orderCount>0 ? <div id="margin" className='count'><p><span id="bold">{appetizer}</span>: {appetizerCount}</p><p><span id="bold">{entree}</span>: {entreeCount}</p><p><span id="bold">{drink}</span>: {drinkCount}</p><p><span id="bold">{dessert}</span>: {dessertCount}</p></div> : null}
             <div className="orderContainer">
             {!orders? <h2 className="announcement">No pending orders at this time!</h2> : orders.map(o=>{
                 return(
@@ -196,6 +217,7 @@ const Admin = (props) => {
                     <p>Entree: {o.entree}</p>
                     <p>Appetizer: {o.appetizer}</p>
                     <p>Drink: {o.drink}</p>
+                    <p>Dessert: {o.dessert}</p>
                     <p>Comments: {o.comments}</p>
                     <button className="btn" id="green"onClick={()=>readyOrder(o._id)}>READY</button> 
                 </div>  

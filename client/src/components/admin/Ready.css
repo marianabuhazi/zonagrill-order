@@ -156,10 +156,6 @@
 #bold{
 	font-weight:600;
 }
-.orderContainer{
-	height:100rem;
-	overflow-y: scroll;
-}
 #margin{
 	margin-left:0.65rem;
 	margin-top:1rem;
