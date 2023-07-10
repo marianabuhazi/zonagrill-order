@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import {withRouter} from 'react-router-dom'
 import submitted from './Submitted'
 import './OrderForm.css'
+import { appetizerList, entreeList, drinksList,  dessertList } from '../../data/french-group'
 
 const OrderForm = (props) => {
     const [phoneNumber, setPhoneNumber] = useState();
@@ -72,7 +73,8 @@ const OrderForm = (props) => {
             <h2 className="subtitle">Introduction</h2>
             <p className="disclaimer">Zona Grill Venezuelan Food is happy to serve you at this event! In order to expedite our service we ask that you submit your order in advance using the form below. 
             <br/><br/>
-            Orders will only be accepted until <span className="deadline">June 14, 2023 @ 6pm.</span></p>
+                {/* Orders will only be accepted until <span className="deadline">June 14, 2023 @ 6pm.</span> */}
+            </p>
             <hr/><br/>
             <h2 className="subtitle">1. Personal Information</h2>
             <label className="">You must fill out all required (<span className="star"> *</span> ) fields to proceed.</label>
@@ -102,8 +104,8 @@ const OrderForm = (props) => {
             <br/>
             <h2 className="subtitle">2. Order</h2>
             <div className="section">
-            <label className="label">Check out our menu for ingredients and images:</label>
-                <a target="_blank" rel="noopener noreferrer" href="http://zonagrill.us/menu" className="btn" id="btnMenu">Zona Grill Menu</a>
+            {/* <label className="label">Check out our menu for ingredients and images:</label>
+                <a target="_blank" rel="noopener noreferrer" href="http://zonagrill.us/menu" className="btn" id="btnMenu">Zona Grill Menu</a> */}
                 <div className="question">
                     <label className="label">
                         Choose an appetizer
@@ -111,7 +113,7 @@ const OrderForm = (props) => {
                     </label>
                     <select className="input" onChange={e=>setAppetizer(e.target.value)}>
                         {
-                            ["","None", "Hot Dog", "Tequeños"].map((option)=>{
+                            appetizerList.map((option)=>{
                                 return <option key={option}>{option}</option>
                             })
                         }
@@ -124,34 +126,7 @@ const OrderForm = (props) => {
                     </label>
                     <select className="input" onChange={e=>setEntree(e.target.value)}>
                         {
-                            ["","None",
-                            "Cachapa: Guayanés Cheese",
-                            "Mixed Cachapa: Guayanés Cheese & Shredded Beef",
-                            "Mixed Cachapa: Guayanés Cheese & Shredded Chicken",
-                            "Mixed Cachapa: Guayanés Cheese & Grilled Pork",
-                            "Caraqueña: Beef Patty",
-                            "Caraqueña: Grilled Chicken",
-                            "Caraqueña: Grilled Pork",
-                            "Brutal",
-                            "Patacón: Shredded Beef",
-                            "Patacón: Shredded Chicken",
-                            "Patacón: Grilled Pork",
-                            "Arepa: Reina Pepia",
-                            "Arepa: Shredded Beef",
-                            "Arepa: Shredded Chicken",
-                            "Arepa: Grilled Pork",
-                            "Arepa: Shredded White Cheese",
-                            "Arepa: Shredded Gouda Cheese",
-                            "Arepa: Soft Guayanés Cheese",
-                            "Arepa: Pelua",
-                            "Arepa: Pelua Vieja",
-                            "Arepa: Catira",
-                            "Arepa: Catira Vieja",
-                            "Arepa: Sifrina",
-                            "Pepito: Steak",
-                            "Pepito: Grilled Chicken",
-                            "Pepito: Mixed"
-                            ].map((option)=>{
+                            entreeList.map((option)=>{
                                 return <option key={option}>{option}</option>
                             })
                         }
@@ -164,13 +139,7 @@ const OrderForm = (props) => {
                     </label>
                     <select className="input" onChange={e=>setDrink(e.target.value)}>
                         {
-                            ["","None", "Water bottle",
-                            "Coke",
-                            "Zero",
-                            "Sprite",
-                            "Passion Fruit Juice", 
-                            "Papelón con Limón (Brown Sugar Lemonade)",
-                            "Strawberry Frescolita"].map((option)=>{
+                            drinksList.map((option)=>{
                                 return <option key={option}>{option}</option>
                             })
                         }
@@ -183,8 +152,7 @@ const OrderForm = (props) => {
                     </label>
                     <select className="input" onChange={e=>setDessert(e.target.value)}>
                         {
-                            ["","None", "Italian Brownie",
-                            "Tres Leches Cake"].map((option)=>{
+                            dessertList.map((option)=>{
                                 return <option key={option}>{option}</option>
                             })
                         }

@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import auth from '../components/auth/auth'
 import {withRouter} from 'react-router-dom'
 import "../components/admin/Ready.css"
+import { appetizerList, entreeList, drinksList, dessertList } from '../data/french-group'
 
 const Admin = (props) => {
     const [orders, setOrders]=useState([])
@@ -145,7 +146,7 @@ const Admin = (props) => {
             <select className="input" id="margin" onChange={e=>{setAppetizer(e.target.value); setHide(true);}}>
             <option disabled selected>Appetizer</option>
                         {
-                            ["None", "Hot Dog", "Tequeños"].map((option)=>{
+                            appetizerList.map((option)=>{
                                 return <option key={option}>{option}</option>
                             })
                         }
@@ -153,34 +154,7 @@ const Admin = (props) => {
             <select className="input" id="margin" onChange={e=>{setEntree(e.target.value); setHide(true);}}>
             <option disabled selected>Entree</option>
                         {
-                            ["None",
-                            "Cachapa: Guayanés Cheese",
-                            "Mixed Cachapa: Guayanés Cheese & Shredded Beef",
-                            "Mixed Cachapa: Guayanés Cheese & Shredded Chicken",
-                            "Mixed Cachapa: Guayanés Cheese & Grilled Pork",
-                            "Caraqueña: Beef Patty",
-                            "Caraqueña: Grilled Chicken",
-                            "Caraqueña: Grilled Pork",
-                            "Brutal",
-                            "Patacón: Shredded Beef",
-                            "Patacón: Shredded Chicken",
-                            "Patacón: Grilled Pork",
-                            "Arepa: Reina Pepia",
-                            "Arepa: Shredded Beef",
-                            "Arepa: Shredded Chicken",
-                            "Arepa: Grilled Pork",
-                            "Arepa: Shredded White Cheese",
-                            "Arepa: Shredded Gouda Cheese",
-                            "Arepa: Soft Guayanés Cheese",
-                            "Arepa: Pelua",
-                            "Arepa: Pelua Vieja",
-                            "Arepa: Catira",
-                            "Arepa: Catira Vieja",
-                            "Arepa: Sifrina",
-                            "Pepito: Steak",
-                            "Pepito: Grilled Chicken",
-                            "Pepito: Mixed"
-                            ].map((option)=>{
+                            entreeList.map((option)=>{
                                 return <option key={option}>{option}</option>
                             })
                         }
@@ -188,13 +162,7 @@ const Admin = (props) => {
                 <select className="input" id="margin" onChange={e=>{setDrink(e.target.value); setHide(true);}}>
                 <option disabled selected>Drink</option>
                         {
-                            ["None", "Water bottle",
-                            "Coke",
-                            "Zero",
-                            "Sprite",
-                            "Passion Fruit Juice", 
-                            "Papelón con Limón (Brown Sugar Lemonade)",
-                            "Strawberry Frescolita"].map((option)=>{
+                            drinksList.map((option)=>{
                                 return <option key={option}>{option}</option>
                             })
                         }
@@ -202,7 +170,7 @@ const Admin = (props) => {
                 <select className="input" id="margin" onChange={e=>{setDessert(e.target.value); setHide(true);}}>
                 <option disabled selected>Dessert</option>
                         {
-                            ["None","Tres Leches Cake", "Italian Brownie"].map((option)=>{
+                            dessertList.map((option)=>{
                                 return <option key={option}>{option}</option>
                             })
                         }
