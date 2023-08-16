@@ -1,17 +1,18 @@
 # Zona Grill Ordering Form
 
-This app provides Zona Grill users with an ordering form. It is meant to be used only at pre-paid corporate events. 
-Zona Grill Order takes user order and returns a confirmation. 
-It also provides an Admin Login to view pending and ready orders, as well as to delete overdue orders. 
+This repository includes an web app for making orders to Zona Grill Venezuelan Food during private catering events. The application has a React client composed of a simple form that users interact with, and a Node/Express/MongoDB backend that processes orders and displays them to the administrator in an admin portal for easy filtering, addition, deletion. 
 
+## Run locally
+Create a .env file with the necessary MongoDB credentials, and have proper network approval.
 
-# Run Locally
-Requires MongoDB credentials, and Network approval.
-cd client npm start.
-cd .. npm start.
+### Start backend
+1. `npm start`
+### Start frontend
+1. `cd client`
 
-# Run on Heroku
-Currently not live.
-Requires Config Vars to be set up with MongoDB URI credentials, login username and login password. Network approval must be set to 0.0.0.0, and cluster must be unpaused.
+2. `npm start`
 
-# Thanks for ordering at Zona Grill🔥
+## Deploy to Heroku
+The site is live on a Heroku app only when there is a corporate event happening.
+
+Update configuration variables to include MongoDB URI credentials, admin portal username and admin portal password. Network approval must be set to 0.0.0.0, and cluster must be unpaused.
